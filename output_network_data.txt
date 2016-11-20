@@ -1,0 +1,216 @@
+neuros: 20
+transferFun: {'tansig','tansig'}
+net.divideParam.trainRatio = 0.8;
+net.divideParam.valRatio = 0.2;
+net.divideParam.testRatio = 0.0;
+net.trainParam.epochs = 1000;
+net.performParam.regularization=0.04;
+
+>> [cross_valid_eval_matrixs,net,ann_c_matrix, ann_eval_matrix] = script(x,y)
+
+cross_valid_eval_matrixs(:,:,1) =
+
+    0.8571    0.5455    0.6667
+    0.3750    0.5000    0.4286
+    0.4444    0.5714    0.5000
+    0.7857    0.6875    0.7333
+    0.5000    0.6667    0.5714
+    0.8571    0.8571    0.8571
+    0.6366    0.6380    0.6262
+
+
+cross_valid_eval_matrixs(:,:,2) =
+
+    1.0000    0.8889    0.9412
+    1.0000    1.0000    1.0000
+    1.0000    1.0000    1.0000
+    0.9333    1.0000    0.9655
+    1.0000    1.0000    1.0000
+    1.0000    1.0000    1.0000
+    0.9889    0.9815    0.9844
+
+
+cross_valid_eval_matrixs(:,:,3) =
+
+    0.8571    0.7500    0.8000
+    0.7500    1.0000    0.8571
+    1.0000    1.0000    1.0000
+    1.0000    1.0000    1.0000
+    1.0000    0.8889    0.9412
+    1.0000    1.0000    1.0000
+    0.9345    0.9398    0.9331
+
+
+cross_valid_eval_matrixs(:,:,4) =
+
+    1.0000    0.8889    0.9412
+    0.8889    1.0000    0.9412
+    0.8889    1.0000    0.9412
+    1.0000    1.0000    1.0000
+    1.0000    1.0000    1.0000
+    1.0000    0.9333    0.9655
+    0.9630    0.9704    0.9648
+
+
+cross_valid_eval_matrixs(:,:,5) =
+
+    0.8571    1.0000    0.9231
+    0.8750    0.8750    0.8750
+    1.0000    1.0000    1.0000
+    1.0000    1.0000    1.0000
+    1.0000    1.0000    1.0000
+    1.0000    0.9333    0.9655
+    0.9554    0.9681    0.9606
+
+
+cross_valid_eval_matrixs(:,:,6) =
+
+    1.0000    1.0000    1.0000
+    1.0000    0.8889    0.9412
+    0.8889    1.0000    0.9412
+    1.0000    1.0000    1.0000
+    1.0000    1.0000    1.0000
+    1.0000    1.0000    1.0000
+    0.9815    0.9815    0.9804
+
+
+cross_valid_eval_matrixs(:,:,7) =
+
+    0.8750    0.8750    0.8750
+    1.0000    1.0000    1.0000
+    0.6667    1.0000    0.8000
+    1.0000    0.8750    0.9333
+    1.0000    0.9000    0.9474
+    1.0000    1.0000    1.0000
+    0.9236    0.9417    0.9260
+
+
+cross_valid_eval_matrixs(:,:,8) =
+
+    1.0000    1.0000    1.0000
+    0.8750    1.0000    0.9333
+    0.8889    0.8889    0.8889
+    1.0000    1.0000    1.0000
+    0.8750    0.8750    0.8750
+    1.0000    0.9333    0.9655
+    0.9398    0.9495    0.9438
+
+
+cross_valid_eval_matrixs(:,:,9) =
+
+    1.0000    1.0000    1.0000
+    1.0000    1.0000    1.0000
+    1.0000    1.0000    1.0000
+    1.0000    0.9375    0.9677
+    1.0000    1.0000    1.0000
+    0.9231    1.0000    0.9600
+    0.9872    0.9896    0.9880
+
+
+cross_valid_eval_matrixs(:,:,10) =
+
+    1.0000    1.0000    1.0000
+    0.8750    1.0000    0.9333
+    1.0000    1.0000    1.0000
+    1.0000    1.0000    1.0000
+    0.8750    1.0000    0.9333
+    1.0000    0.8750    0.9333
+    0.9583    0.9792    0.9667
+
+
+net =
+
+    Neural Network
+ 
+              name: 'Custom Neural Network'
+          userdata: (your custom info)
+ 
+    dimensions:
+ 
+         numInputs: 1
+         numLayers: 2
+        numOutputs: 1
+    numInputDelays: 0
+    numLayerDelays: 0
+ numFeedbackDelays: 0
+ numWeightElements: 2786
+        sampleTime: 1
+ 
+    connections:
+ 
+       biasConnect: [1; 1]
+      inputConnect: [1; 0]
+      layerConnect: [0 0; 1 0]
+     outputConnect: [0 1]
+ 
+    subobjects:
+ 
+             input: Equivalent to inputs{1}
+            output: Equivalent to outputs{2}
+ 
+            inputs: {1x1 cell array of 1 input}
+            layers: {2x1 cell array of 2 layers}
+           outputs: {1x2 cell array of 1 output}
+            biases: {2x1 cell array of 2 biases}
+      inputWeights: {2x1 cell array of 1 weight}
+      layerWeights: {2x2 cell array of 1 weight}
+ 
+    functions:
+ 
+          adaptFcn: 'adaptwb'
+        adaptParam: (none)
+          derivFcn: 'defaultderiv'
+         divideFcn: 'dividerand'
+       divideParam: .trainRatio, .valRatio, .testRatio
+        divideMode: 'sample'
+           initFcn: 'initlay'
+        performFcn: 'mse'
+      performParam: .regularization, .normalization
+          plotFcns: {'plotperform', plottrainstate,
+                    plotregression}
+        plotParams: {1x3 cell array of 3 params}
+          trainFcn: 'trainlm'
+        trainParam: .showWindow, .showCommandLine, .show, .epochs,
+                    .time, .goal, .min_grad, .max_fail, .mu, .mu_dec,
+                    .mu_inc, .mu_max
+ 
+    weight and bias values:
+ 
+                IW: {2x1 cell} containing 1 input weight matrix
+                LW: {2x2 cell} containing 1 layer weight matrix
+                 b: {2x1 cell} containing 2 bias vectors
+ 
+    methods:
+ 
+             adapt: Learn while in continuous use
+         configure: Configure inputs & outputs
+            gensim: Generate Simulink model
+              init: Initialize weights & biases
+           perform: Calculate performance
+               sim: Evaluate network outputs given inputs
+             train: Train network with examples
+              view: View diagram
+       unconfigure: Unconfigure inputs & outputs
+ 
+    evaluate:       outputs = net(inputs)
+ 
+
+ann_c_matrix =
+
+    70     1     0     0     3     0
+     6    73     0     1     2     2
+     1     2    79     5     0     3
+     1     0     2   139     0     1
+     2     1     1     1    78     1
+     0     1     1     1     0   134
+
+
+ann_eval_matrix =
+
+    0.9459    0.8750    0.9091
+    0.8690    0.9359    0.9012
+    0.8778    0.9518    0.9133
+    0.9720    0.9456    0.9586
+    0.9286    0.9398    0.9341
+    0.9781    0.9504    0.9640
+    0.9286    0.9331    0.9301
